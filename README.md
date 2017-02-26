@@ -5,6 +5,7 @@ Docker image with [mosquitto](https://mosquitto.org) service for raspberry pi.
 ## Environment
 
 * __USER_ID__ uid to assign the mosquitto user that runs the mosquitto MQTT broker. Default 9001.
+* __GROUP_ID__ gid to assign the mosquitto user that runs the mosquitto MQTT broker. Default 9001.
 
 ## Volumes
 
@@ -28,8 +29,9 @@ docker run \
     -p 1883:1883 \
     -p 9001:9001 \
     -e USER_ID=<uid> \
+    -e GROUP_ID=<gid> \
     -d \
     --restart=always \
     bjosa/rpi-mosquitto
 ```
-Replace `<uid>` with the uid of the user that should run the mosquitto MQTT message broker in the container.
+Replace `<uid>` and `<gid>` with the uid and gid of the user that should run the mosquitto MQTT message broker in the container.
